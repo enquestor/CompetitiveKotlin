@@ -3,7 +3,7 @@
 source_filename="$1"
 
 echo "[kk] Compiling $source_filename ..."
-kotlinc "$1".kt
+kotlinc "$1".kt -nowarn
 
 compiled_filename=$(ls -lt | grep Kt | sed -n 2p | awk '{ print $9 }')
 clean_filename=$(echo "$compiled_filename" | rev | sed -e "s/^.*\.//1" | rev)
