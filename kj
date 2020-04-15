@@ -12,7 +12,7 @@ kotlinc "$1".kt -nowarn
 compiled_filename=$(ls -lt | sed -n 2p | awk '{ print $9 }')
 
 echo '[kj] Decompiling to Java ...'
-java -jar "ckpath"/fernflower.jar "$compiled_filename" .
+java -jar "$ckpath"/fernflower.jar "$compiled_filename" .
 decompiled_filename=$(ls -lt | sed -n 2p | awk '{ print $9 }')
 mv "$decompiled_filename" "$clean_filename".java
 
