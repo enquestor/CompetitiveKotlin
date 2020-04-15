@@ -8,7 +8,7 @@ clean_filename=$(echo "$source_filename" | rev | sed -e "s/^.*\.//1" | rev)
 echo "[kj] Compiling $source_filename ..."
 kotlinc "$1".kt
 
-compiled_filename=$(ls -lt | sed -n 2p | awk '{ print $9 }')
+compiled_filename=$(ls -lt | grep Kt | sed -n 2p | awk '{ print $9 }')
 
 echo '[kj] Decompiling to Java ...'
 java -jar ~/Scripts/fernflower.jar "$compiled_filename" .
