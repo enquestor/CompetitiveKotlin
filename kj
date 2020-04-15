@@ -1,7 +1,8 @@
 #!/bin/sh
 
-$username = $(who am i | awk '{print $1}')
-readonly fernflower_source="/Users//.ck/fernflower.jar"
+username=$(who am i | awk '{print $1}')
+ckpath="/Users/$username/.ck"
+readonly fernflower_source="$ckpath/fernflower.jar"
 source_filename="$1"
 clean_filename=$(echo "$source_filename" | rev | sed -e "s/^.*\.//1" | rev)
 
@@ -11,7 +12,7 @@ kotlinc "$1".kt -nowarn
 compiled_filename=$(ls -lt | sed -n 2p | awk '{ print $9 }')
 
 echo '[kj] Decompiling to Java ...'
-java -jar ~/Scripts/fernflower.jar "$compiled_filename" .
+java -jar "ckpath"/fernflower.jar "$compiled_filename" .
 decompiled_filename=$(ls -lt | sed -n 2p | awk '{ print $9 }')
 mv "$decompiled_filename" "$clean_filename".java
 
