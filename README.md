@@ -7,7 +7,7 @@ You'll need to install the kotlin command-line compiler beforehand from [here](h
 # How to install
 Download the `install.sh` from above.
 
-Run it with root priviliges.
+Run it with root privileges.
 ```
 sudo bash install.sh
 ```
