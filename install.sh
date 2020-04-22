@@ -10,7 +10,7 @@ if [ "$installed" = 1 ] ; then
 fi
 
 # get source files
-git clone https://github.com/Allen-Hu/CompetitiveKotlin.git /Users/"$username"/.ck
+git clone https://github.com/Allen-Hu/CompetitiveKotlin.git "$ckpath"
 
 # add folder to path
 has_path=$(cat /etc/paths | grep "$ckpath" | wc -l | awk '{ print $1 }')
